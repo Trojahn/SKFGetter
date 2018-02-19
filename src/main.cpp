@@ -59,7 +59,8 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		if(fNum == desFrames[index]) {
-			imwrite(outFolder + to_string(fNum) + ".png", frame, params);
+			cv::resize(frame, frame, Size(224,224));
+			imwrite(outFolder + to_string(fNum+1) + ".png", frame, params);
 		}
 		fNum = fNum + 1;
 		if(fNum > desFrames[index]) {

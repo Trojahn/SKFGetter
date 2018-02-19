@@ -34,6 +34,9 @@ vector<int> Utils::getKeyframesNumbers(string path) {
 	for(auto &t : keyframes) {
 		desiredFrames.push_back(t.second);
 	}
+
+	sort(desiredFrames.begin(), desiredFrames.end());
+	desiredFrames.erase(unique(desiredFrames.begin(), desiredFrames.end()), desiredFrames.end());
 	
 	return desiredFrames;
 }
