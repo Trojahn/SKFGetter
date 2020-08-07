@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	vector<int> params;
-	params.push_back(CV_IMWRITE_PNG_COMPRESSION);
+	params.push_back(IMWRITE_PNG_COMPRESSION);
 	params.push_back(9);
 
 	vector<int> desFrames = Utils::getKeyframesNumbers(kfPath);
@@ -59,6 +59,7 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		if(fNum == desFrames[index]) {
+			// Used to DL feature segmentation processes
 			cv::resize(frame, frame, Size(224,224));
 			imwrite(outFolder + to_string(fNum+1) + ".png", frame, params);
 		}
